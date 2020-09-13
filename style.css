@@ -31,6 +31,10 @@ body{
     font-size: 1rem;
 }
 
+.fas:hover{
+    cursor: pointer;
+}
+
 .note{
     width: 70vw;
     background-color: orange;
