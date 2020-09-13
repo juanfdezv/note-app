@@ -2,6 +2,11 @@ const addNoteButton = document.querySelector(".fa-plus-circle");
 const container = document.querySelector(".container");
 const colors = ["fec871", "fd9a6e", "e3ed8e", "b491fb", "56d9f2"];
 
+let trashButton;
+let note;
+let count = 0;
+
+
 function addNote(){
     let title = prompt("Enter note title:");
     let content = prompt("Enter note content:");
@@ -10,6 +15,8 @@ function addNote(){
 
     let note = document.createElement("div");
     note.classList.add("note");
+    count += 1;
+    note.id = count;
     note.style.backgroundColor = `#${colors[random]}`;
 
     let noteTitle = document.createElement("div");
@@ -48,6 +55,14 @@ function addNote(){
     note.appendChild(noteContent);
     note.appendChild(noteFooter);
     container.appendChild(note);
+    
+    function borrar(){
+        if (trashButton = document.createElement("i")){
+            let b = document.getElementById(`${note.id}`);
+            b.remove();
+    }}
+    
+    trashButton.addEventListener('click', borrar);
 }
 
 addNoteButton.addEventListener("click", addNote);
