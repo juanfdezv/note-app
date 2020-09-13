@@ -1,6 +1,7 @@
 const addNoteButton = document.querySelector(".fa-plus-circle");
 const container = document.querySelector(".container");
 const colors = ["fec871", "fd9a6e", "e3ed8e", "b491fb", "56d9f2"];
+const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 let count = 0;
 
 function deleteNote(note){
@@ -11,7 +12,7 @@ function deleteNote(note){
 function addNote(){
     let title = prompt("Enter note title:");
     let content = prompt("Enter note content:");
-    let date = "Sep 12, 2020";
+    let date = new Date();
     const random = Math.floor(Math.random() * colors.length);
 
     let note = document.createElement("div");
@@ -33,7 +34,7 @@ function addNote(){
 
     let footerDate = document.createElement("div");
     footerDate.classList.add("footer-date");
-    footerDate.textContent = date;
+    footerDate.textContent = `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
 
     let footerIcons = document.createElement("div");
     footerIcons.classList.add("footer-icons");
