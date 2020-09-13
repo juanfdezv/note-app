@@ -1,11 +1,12 @@
 const addNoteButton = document.querySelector(".fa-plus-circle");
 const container = document.querySelector(".container");
 const colors = ["fec871", "fd9a6e", "e3ed8e", "b491fb", "56d9f2"];
-
-let trashButton;
-let note;
 let count = 0;
 
+function deleteNote(note){
+    let b = document.getElementById(`${note.id}`);
+    b.remove();
+}
 
 function addNote(){
     let title = prompt("Enter note title:");
@@ -37,17 +38,9 @@ function addNote(){
     let footerIcons = document.createElement("div");
     footerIcons.classList.add("footer-icons");
 
-    //let minusSquareButton = document.createElement("i");
-    //minusSquareButton.classList.add("fas", "fa-minus-square");
-
-    //let penSquareButton = document.createElement("i");
-    //penSquareButton.classList.add("fas", "fa-pen-square");
-
     let trashButton = document.createElement("i");
     trashButton.classList.add("fas", "fa-trash");
 
-    //footerIcons.appendChild(minusSquareButton);
-    //footerIcons.appendChild(penSquareButton);
     footerIcons.appendChild(trashButton);
     noteFooter.appendChild(footerDate);
     noteFooter.appendChild(footerIcons);
@@ -56,13 +49,9 @@ function addNote(){
     note.appendChild(noteFooter);
     container.appendChild(note);
     
-    function borrar(){
-        if (trashButton = document.createElement("i")){
-            let b = document.getElementById(`${note.id}`);
-            b.remove();
-    }}
-    
-    trashButton.addEventListener('click', borrar);
+    trashButton.addEventListener('click', () => {
+        deleteNote(note);
+    });
 }
 
 addNoteButton.addEventListener("click", addNote);
